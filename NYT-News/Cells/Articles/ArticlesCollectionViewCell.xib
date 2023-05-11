@@ -10,33 +10,87 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ArticesCollectionViewCell" customModule="NYT_News" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="358" height="81"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ArticlesCollectionViewCell" customModule="NYT_News" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="397" height="152"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="358" height="81"/>
+                <rect key="frame" x="0.0" y="0.0" width="397" height="152"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTo-cf-dnH">
-                        <rect key="frame" x="0.0" y="0.0" width="358" height="81"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTo-cf-dnH" customClass="CardView" customModule="NYT_News" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="381" height="136"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eOy-eR-r8w">
+                                <rect key="frame" x="150" y="12" width="223" height="112"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Test başlık label'ı bu uzunlukta  Acıke pompake parçalıyoruzke" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSv-NY-yXC">
+                                        <rect key="frame" x="0.0" y="0.0" width="223" height="56"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <color key="textColor" systemColor="linkColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Acıke Pompake parçalıyoruzke baba pompake değerleri aldıdn da hata veriyo dayiii gpt cevaplamıyo mu" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-Fi-V5O">
+                                        <rect key="frame" x="0.0" y="56" width="223" height="56"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CsJ-z2-JKb">
+                                <rect key="frame" x="140" y="0.0" width="2" height="136"/>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="2" id="V8d-PS-Pay"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testArticle" translatesAutoresizingMaskIntoConstraints="NO" id="kyB-xG-2fp">
+                                <rect key="frame" x="8" y="8" width="124" height="120"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CsJ-z2-JKb" firstAttribute="leading" secondItem="KTo-cf-dnH" secondAttribute="leading" constant="140" id="4M0-GR-7yq"/>
+                            <constraint firstItem="kyB-xG-2fp" firstAttribute="top" secondItem="KTo-cf-dnH" secondAttribute="top" constant="8" id="7DW-oH-gSO"/>
+                            <constraint firstAttribute="bottom" secondItem="kyB-xG-2fp" secondAttribute="bottom" constant="8" id="Ki1-Ms-okl"/>
+                            <constraint firstItem="eOy-eR-r8w" firstAttribute="leading" secondItem="CsJ-z2-JKb" secondAttribute="trailing" constant="8" id="PS2-hm-PQM"/>
+                            <constraint firstItem="CsJ-z2-JKb" firstAttribute="top" secondItem="KTo-cf-dnH" secondAttribute="top" id="bOr-5Z-iGB"/>
+                            <constraint firstItem="CsJ-z2-JKb" firstAttribute="leading" secondItem="kyB-xG-2fp" secondAttribute="trailing" constant="8" id="dUj-of-rB5"/>
+                            <constraint firstItem="kyB-xG-2fp" firstAttribute="leading" secondItem="KTo-cf-dnH" secondAttribute="leading" constant="8" id="gG3-ZD-i2N"/>
+                            <constraint firstAttribute="height" constant="136" id="ing-sA-Lg6"/>
+                            <constraint firstAttribute="bottom" secondItem="CsJ-z2-JKb" secondAttribute="bottom" id="ipI-Wx-CUP"/>
+                            <constraint firstItem="eOy-eR-r8w" firstAttribute="top" secondItem="KTo-cf-dnH" secondAttribute="top" constant="12" id="nvU-Kl-8PU"/>
+                            <constraint firstAttribute="bottom" secondItem="eOy-eR-r8w" secondAttribute="bottom" constant="12" id="oai-Zk-4rb"/>
+                            <constraint firstAttribute="trailing" secondItem="eOy-eR-r8w" secondAttribute="trailing" constant="8" id="sje-MS-Qto"/>
+                        </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="KTo-cf-dnH" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="ESs-ES-pxg"/>
-                <constraint firstAttribute="trailing" secondItem="KTo-cf-dnH" secondAttribute="trailing" id="GUx-UU-Udw"/>
-                <constraint firstItem="KTo-cf-dnH" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="Znj-pc-f8l"/>
-                <constraint firstItem="KTo-cf-dnH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Zr1-hP-akH"/>
-                <constraint firstItem="KTo-cf-dnH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kNA-Uz-JHl"/>
-                <constraint firstAttribute="bottom" secondItem="KTo-cf-dnH" secondAttribute="bottom" id="kzi-FG-DXg"/>
+                <constraint firstAttribute="trailing" secondItem="KTo-cf-dnH" secondAttribute="trailing" constant="8" id="GUx-UU-Udw"/>
+                <constraint firstItem="KTo-cf-dnH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Zr1-hP-akH"/>
+                <constraint firstItem="KTo-cf-dnH" firstAttribute="width" secondItem="ZTg-uK-7eu" secondAttribute="width" multiplier="0.959698" id="d2t-SS-vo0"/>
+                <constraint firstItem="KTo-cf-dnH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="kNA-Uz-JHl"/>
+                <constraint firstAttribute="bottom" secondItem="KTo-cf-dnH" secondAttribute="bottom" constant="8" id="kzi-FG-DXg"/>
             </constraints>
-            <size key="customSize" width="358" height="81"/>
-            <point key="canvasLocation" x="358.77862595419845" y="-0.35211267605633806"/>
+            <size key="customSize" width="513" height="152"/>
+            <connections>
+                <outlet property="abstractLabel" destination="Umm-Fi-V5O" id="YOA-Uh-uWH"/>
+                <outlet property="imageView" destination="kyB-xG-2fp" id="3qm-qO-mEr"/>
+                <outlet property="title" destination="tSv-NY-yXC" id="52o-w4-aio"/>
+            </connections>
+            <point key="canvasLocation" x="477.09923664122135" y="24.647887323943664"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="testArticle" width="2048" height="1366"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

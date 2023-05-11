@@ -25,7 +25,6 @@ class CategoryViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toArticlesVC" {
             if let selectedCategory = sender as? String, let destinationVC = segue.destination as? ArticlesViewController {
-
                 destinationVC.categoryName = selectedCategory
 
             }
