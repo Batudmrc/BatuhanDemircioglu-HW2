@@ -17,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="krB-Cr-dSY">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6tr-xl-SDM">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,20 +31,59 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="krB-Cr-dSY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="FmR-Hb-afA"/>
-                            <constraint firstItem="krB-Cr-dSY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HGb-mR-HGu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="krB-Cr-dSY" secondAttribute="trailing" id="JmS-XI-zLS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="krB-Cr-dSY" secondAttribute="bottom" id="pOm-32-jkW"/>
+                            <constraint firstItem="krB-Cr-dSY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hdi-tC-3Pk"/>
+                            <constraint firstItem="krB-Cr-dSY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hxg-En-jQa"/>
+                            <constraint firstItem="krB-Cr-dSY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qeF-Io-O7d"/>
+                            <constraint firstAttribute="bottom" secondItem="krB-Cr-dSY" secondAttribute="bottom" id="sS9-V6-tzi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3hG-59-rCp"/>
                     <connections>
                         <outlet property="collectionView" destination="krB-Cr-dSY" id="NFt-62-Wq8"/>
+                        <segue destination="JBA-pY-SLV" kind="show" identifier="toArticlesVC" id="qqv-ct-6h6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057.2519083969464" y="-27.464788732394368"/>
+        </scene>
+        <!--Articles View Controller-->
+        <scene sceneID="tKb-rj-tSj">
+            <objects>
+                <viewController id="JBA-pY-SLV" customClass="ArticlesViewController" customModule="NYT_News" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nYp-rF-fGR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KFr-Yr-SQ1">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LGE-kr-1Qx">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SyA-MQ-2v3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SyA-MQ-2v3" firstAttribute="trailing" secondItem="KFr-Yr-SQ1" secondAttribute="trailing" id="Ena-gz-5kY"/>
+                            <constraint firstItem="SyA-MQ-2v3" firstAttribute="bottom" secondItem="KFr-Yr-SQ1" secondAttribute="bottom" id="Yob-uu-u6K"/>
+                            <constraint firstItem="KFr-Yr-SQ1" firstAttribute="leading" secondItem="SyA-MQ-2v3" secondAttribute="leading" id="fB8-WU-gtR"/>
+                            <constraint firstItem="KFr-Yr-SQ1" firstAttribute="top" secondItem="SyA-MQ-2v3" secondAttribute="top" id="wHe-rS-SD9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="GE8-1Y-1Ak"/>
+                    <connections>
+                        <outlet property="collectionView" destination="KFr-Yr-SQ1" id="yvL-Hk-iO7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wSC-DJ-fAR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1860" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TJE-da-mSI">

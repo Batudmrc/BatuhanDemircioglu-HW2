@@ -26,7 +26,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2f-v2-01O">
                                 <rect key="frame" x="8" y="108.66666666666667" width="88" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
