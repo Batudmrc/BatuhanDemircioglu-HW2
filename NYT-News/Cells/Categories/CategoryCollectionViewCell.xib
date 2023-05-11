@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CategoryCollectionViewCell" customModule="NYT_News" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uV4-QS-N8H" customClass="CardView" customModule="NYT_News" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="104" height="134"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="g2m-Gf-fkF">
+                                <rect key="frame" x="0.0" y="0.0" width="104" height="102.66666666666667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2f-v2-01O">
+                                <rect key="frame" x="8" y="108.66666666666667" width="88" height="19.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="G2f-v2-01O" firstAttribute="top" secondItem="g2m-Gf-fkF" secondAttribute="bottom" constant="6" id="5J5-Fb-cYd"/>
+                            <constraint firstAttribute="trailing" secondItem="G2f-v2-01O" secondAttribute="trailing" constant="8" id="7fd-f0-dHg"/>
+                            <constraint firstAttribute="bottom" secondItem="G2f-v2-01O" secondAttribute="bottom" constant="6" id="GhP-28-ztw"/>
+                            <constraint firstItem="g2m-Gf-fkF" firstAttribute="top" secondItem="uV4-QS-N8H" secondAttribute="top" id="d5V-FW-4eI"/>
+                            <constraint firstItem="G2f-v2-01O" firstAttribute="leading" secondItem="uV4-QS-N8H" secondAttribute="leading" constant="8" id="drK-hA-Brf"/>
+                            <constraint firstAttribute="trailing" secondItem="g2m-Gf-fkF" secondAttribute="trailing" id="nqv-hN-fOH"/>
+                            <constraint firstItem="g2m-Gf-fkF" firstAttribute="leading" secondItem="uV4-QS-N8H" secondAttribute="leading" id="ptK-N9-9mj"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="uV4-QS-N8H" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="7Kt-S5-9KP"/>
+                <constraint firstAttribute="trailing" secondItem="uV4-QS-N8H" secondAttribute="trailing" constant="8" id="aA5-dQ-cMy"/>
+                <constraint firstAttribute="bottom" secondItem="uV4-QS-N8H" secondAttribute="bottom" constant="8" id="eqd-6G-giS"/>
+                <constraint firstItem="uV4-QS-N8H" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="hXg-ca-QJx"/>
+            </constraints>
+            <size key="customSize" width="124" height="147"/>
+            <connections>
+                <outlet property="categoryLabel" destination="G2f-v2-01O" id="Dxr-EI-8eW"/>
+                <outlet property="imageView" destination="g2m-Gf-fkF" id="bvK-mD-yDd"/>
+            </connections>
+            <point key="canvasLocation" x="180.15267175572518" y="22.535211267605636"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="food" width="800" height="628"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
