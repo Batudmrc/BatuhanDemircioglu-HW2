@@ -20,6 +20,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTo-cf-dnH" customClass="CardView" customModule="NYT_News" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="381" height="136"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kyB-xG-2fp">
+                                <rect key="frame" x="8" y="8" width="124" height="120"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eOy-eR-r8w">
                                 <rect key="frame" x="150" y="12" width="223" height="112"/>
                                 <subviews>
@@ -44,22 +47,26 @@
                                     <constraint firstAttribute="width" constant="2" id="V8d-PS-Pay"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testArticle" translatesAutoresizingMaskIntoConstraints="NO" id="kyB-xG-2fp">
-                                <rect key="frame" x="8" y="8" width="124" height="120"/>
-                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="NjE-f7-Nal">
+                                <rect key="frame" x="60" y="58" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="CsJ-z2-JKb" firstAttribute="leading" secondItem="KTo-cf-dnH" secondAttribute="leading" constant="140" id="4M0-GR-7yq"/>
                             <constraint firstItem="kyB-xG-2fp" firstAttribute="top" secondItem="KTo-cf-dnH" secondAttribute="top" constant="8" id="7DW-oH-gSO"/>
+                            <constraint firstItem="NjE-f7-Nal" firstAttribute="leading" secondItem="KTo-cf-dnH" secondAttribute="leading" constant="60" id="IYE-mL-QQy"/>
                             <constraint firstAttribute="bottom" secondItem="kyB-xG-2fp" secondAttribute="bottom" constant="8" id="Ki1-Ms-okl"/>
                             <constraint firstItem="eOy-eR-r8w" firstAttribute="leading" secondItem="CsJ-z2-JKb" secondAttribute="trailing" constant="8" id="PS2-hm-PQM"/>
+                            <constraint firstAttribute="bottom" secondItem="NjE-f7-Nal" secondAttribute="bottom" constant="58" id="Xca-nm-xHf"/>
                             <constraint firstItem="CsJ-z2-JKb" firstAttribute="top" secondItem="KTo-cf-dnH" secondAttribute="top" id="bOr-5Z-iGB"/>
                             <constraint firstItem="CsJ-z2-JKb" firstAttribute="leading" secondItem="kyB-xG-2fp" secondAttribute="trailing" constant="8" id="dUj-of-rB5"/>
+                            <constraint firstItem="CsJ-z2-JKb" firstAttribute="leading" secondItem="NjE-f7-Nal" secondAttribute="trailing" constant="60" id="f8d-AX-c1I"/>
                             <constraint firstItem="kyB-xG-2fp" firstAttribute="leading" secondItem="KTo-cf-dnH" secondAttribute="leading" constant="8" id="gG3-ZD-i2N"/>
                             <constraint firstAttribute="height" constant="136" id="ing-sA-Lg6"/>
                             <constraint firstAttribute="bottom" secondItem="CsJ-z2-JKb" secondAttribute="bottom" id="ipI-Wx-CUP"/>
                             <constraint firstItem="eOy-eR-r8w" firstAttribute="top" secondItem="KTo-cf-dnH" secondAttribute="top" constant="12" id="nvU-Kl-8PU"/>
+                            <constraint firstItem="NjE-f7-Nal" firstAttribute="top" secondItem="KTo-cf-dnH" secondAttribute="top" constant="58" id="oQA-fJ-aha"/>
                             <constraint firstAttribute="bottom" secondItem="eOy-eR-r8w" secondAttribute="bottom" constant="12" id="oai-Zk-4rb"/>
                             <constraint firstAttribute="trailing" secondItem="eOy-eR-r8w" secondAttribute="trailing" constant="8" id="sje-MS-Qto"/>
                         </constraints>
@@ -78,13 +85,13 @@
             <connections>
                 <outlet property="abstractLabel" destination="Umm-Fi-V5O" id="YOA-Uh-uWH"/>
                 <outlet property="imageView" destination="kyB-xG-2fp" id="3qm-qO-mEr"/>
+                <outlet property="spinner" destination="NjE-f7-Nal" id="4yg-90-xSU"/>
                 <outlet property="title" destination="tSv-NY-yXC" id="52o-w4-aio"/>
             </connections>
             <point key="canvasLocation" x="477.09923664122135" y="24.647887323943664"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="testArticle" width="2048" height="1366"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
