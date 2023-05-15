@@ -23,12 +23,9 @@ class CategoryViewController: UIViewController {
                                   Category(categoryName: "World", categoryImage: "world")]
     
     override func viewDidLoad() {
-        
         self.title = "Choose a Category"
         super.viewDidLoad()
         setupCollectionView()
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,9 +63,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCategory = categories[indexPath.row].categoryImage
-        print(selectedCategory!)
         performSegue(withIdentifier: "toArticlesVC", sender: selectedCategory)
-        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width

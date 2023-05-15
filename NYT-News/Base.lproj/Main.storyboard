@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aiG-Rd-qLf">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -79,11 +81,97 @@
                     <navigationItem key="navigationItem" id="GE8-1Y-1Ak"/>
                     <connections>
                         <outlet property="collectionView" destination="KFr-Yr-SQ1" id="yvL-Hk-iO7"/>
+                        <segue destination="4At-nz-Keb" kind="show" identifier="toDetailVC" id="ecM-Mp-fVI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSC-DJ-fAR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1860" y="-27"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="C3J-w2-J9e">
+            <objects>
+                <viewController id="4At-nz-Keb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1yy-zk-etr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testArticle" translatesAutoresizingMaskIntoConstraints="NO" id="dT8-tC-Py0">
+                                <rect key="frame" x="0.0" y="103" width="393" height="264"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ToL-aO-WnA">
+                                <rect key="frame" x="16" y="383" width="361" height="80.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rip and Replace’: The Tech Cold War Is Upending Wireless Carriers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuj-lq-Ek6">
+                                        <rect key="frame" x="0.0" y="0.0" width="352.66666666666669" height="50.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                        <color key="textColor" systemColor="linkColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Cecilia Kang" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caY-wZ-KyW">
+                                        <rect key="frame" x="0.0" y="60.333333333333321" width="120.66666666666667" height="20.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19i-1w-zLR">
+                                <rect key="frame" x="0.0" y="479.66666666666669" width="393" height="2"/>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="Cy2-Du-9Ll"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-bM-BdO">
+                                <rect key="frame" x="20" y="739.33333333333337" width="353" height="42.666666666666629"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="See More"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6g-pN-Ols">
+                                <rect key="frame" x="16" y="497.66666666666669" width="361" height="119.66666666666669"/>
+                                <string key="text">More than 1.1 million Americans have died of Covid. An official end to the health emergency has landed in complicated ways for those affected most acutely.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h9C-Mg-Tbb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h9C-Mg-Tbb" firstAttribute="trailing" secondItem="aYg-bM-BdO" secondAttribute="trailing" constant="20" id="3dY-4H-mGo"/>
+                            <constraint firstItem="19i-1w-zLR" firstAttribute="leading" secondItem="h9C-Mg-Tbb" secondAttribute="leading" id="L9t-dj-9wW"/>
+                            <constraint firstItem="dT8-tC-Py0" firstAttribute="leading" secondItem="h9C-Mg-Tbb" secondAttribute="leading" id="Len-Nc-5E9"/>
+                            <constraint firstItem="aYg-bM-BdO" firstAttribute="height" secondItem="1yy-zk-etr" secondAttribute="height" multiplier="0.05" id="M6K-vh-OgC"/>
+                            <constraint firstItem="dT8-tC-Py0" firstAttribute="top" secondItem="h9C-Mg-Tbb" secondAttribute="top" id="Uzq-UR-41d"/>
+                            <constraint firstItem="h9C-Mg-Tbb" firstAttribute="trailing" secondItem="19i-1w-zLR" secondAttribute="trailing" id="W6G-CV-40W"/>
+                            <constraint firstAttribute="trailing" secondItem="ToL-aO-WnA" secondAttribute="trailing" constant="16" id="WUb-6e-yxg"/>
+                            <constraint firstItem="ToL-aO-WnA" firstAttribute="leading" secondItem="h9C-Mg-Tbb" secondAttribute="leading" constant="16" id="amR-TN-0Ly"/>
+                            <constraint firstItem="ToL-aO-WnA" firstAttribute="top" secondItem="dT8-tC-Py0" secondAttribute="bottom" constant="16" id="edZ-Zf-1V2"/>
+                            <constraint firstItem="19i-1w-zLR" firstAttribute="top" secondItem="ToL-aO-WnA" secondAttribute="bottom" constant="16" id="fo4-cH-lEx"/>
+                            <constraint firstItem="O6g-pN-Ols" firstAttribute="leading" secondItem="h9C-Mg-Tbb" secondAttribute="leading" constant="16" id="o3s-GX-OHC"/>
+                            <constraint firstItem="h9C-Mg-Tbb" firstAttribute="bottom" secondItem="aYg-bM-BdO" secondAttribute="bottom" constant="5" id="rcT-an-J8A">
+                                <variation key="heightClass=regular-widthClass=compact" constant="36"/>
+                            </constraint>
+                            <constraint firstItem="h9C-Mg-Tbb" firstAttribute="trailing" secondItem="dT8-tC-Py0" secondAttribute="trailing" id="rga-kI-0h4"/>
+                            <constraint firstItem="h9C-Mg-Tbb" firstAttribute="trailing" secondItem="O6g-pN-Ols" secondAttribute="trailing" constant="16" id="wA0-OG-Zcs"/>
+                            <constraint firstItem="aYg-bM-BdO" firstAttribute="leading" secondItem="h9C-Mg-Tbb" secondAttribute="leading" constant="20" id="xwS-cd-epl"/>
+                            <constraint firstItem="dT8-tC-Py0" firstAttribute="height" secondItem="1yy-zk-etr" secondAttribute="height" multiplier="0.31" id="yRE-H4-ydL"/>
+                            <constraint firstItem="O6g-pN-Ols" firstAttribute="top" secondItem="19i-1w-zLR" secondAttribute="bottom" constant="16" id="yqA-rQ-OwD"/>
+                        </constraints>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="rcT-an-J8A"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="Yg5-WU-EqO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ri-Xn-BU4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2626.7175572519081" y="-27.464788732394368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TJE-da-mSI">
@@ -105,6 +193,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="testArticle" width="2048" height="1366"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

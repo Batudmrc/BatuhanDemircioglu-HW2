@@ -18,16 +18,12 @@ class ArticlesCollectionViewCell: UICollectionViewCell {
     static let identifier = String(describing: ArticlesCollectionViewCell.self)
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         self.imageView.layer.cornerRadius = 4
-       
-        
     }
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
     }
-    
     func setup(article: ArticleResult) {
         self.title.text = article.title
         self.abstractLabel.text = article.abstract
@@ -38,7 +34,6 @@ class ArticlesCollectionViewCell: UICollectionViewCell {
         
         if let imageUrlString = article.multimedia?.first?.url {
             self.imageUrlString = imageUrlString
-            
             if let cachedImage = ImageCache.shared.getImage(for: imageUrlString) {
                 // Use the cached image if available
                 imageView.image = cachedImage
@@ -85,7 +80,6 @@ struct ArticleView {
     let abstract: String
     let image: String
 }
-
 class ImageCache {
     static let shared = ImageCache()
     private let cache = NSCache<NSString, UIImage>()

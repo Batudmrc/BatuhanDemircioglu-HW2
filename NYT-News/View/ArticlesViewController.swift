@@ -28,7 +28,6 @@ class ArticlesViewController: UIViewController {
             case .success(let article):
                 DispatchQueue.main.async {
                     self?.articles.append(contentsOf: article.results) // Add the article to the articles array
-                    print(self!.articles[2])
                     self?.collectionView.reloadData()
                 }
             case .failure(let error):
@@ -36,23 +35,18 @@ class ArticlesViewController: UIViewController {
             }
         }
     }
-    
-    
     func setupCollectionView(){
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsVerticalScrollIndicator = false
         
         collectionView.register(UINib(nibName: ArticlesCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: ArticlesCollectionViewCell.identifier)
-        
     }
 }
-
 extension ArticlesViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articles.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticlesCollectionViewCell.identifier, for: indexPath) as! ArticlesCollectionViewCell
         let article = articles[indexPath.row]
@@ -61,5 +55,10 @@ extension ArticlesViewController: UICollectionViewDelegate,UICollectionViewDataS
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 5.2)
-    }    
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedArticle = articles[indexPath.row]
+        performSegue(withIdentifier: "toDetailVC", sender: selectedArticle)
+        print(articles[indexPath.row])
+    }
 }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,9 +27,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eOy-eR-r8w">
                                 <rect key="frame" x="150" y="12" width="223" height="112"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Test başlık label'ı bu uzunlukta  Acıke pompake parçalıyoruzke" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSv-NY-yXC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Test başlık label'ı bu label test için oluştuğuduğum label c5  " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSv-NY-yXC">
                                         <rect key="frame" x="0.0" y="0.0" width="223" height="56"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <color key="textColor" systemColor="linkColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -55,18 +56,16 @@
                         <constraints>
                             <constraint firstItem="CsJ-z2-JKb" firstAttribute="leading" secondItem="KTo-cf-dnH" secondAttribute="leading" constant="140" id="4M0-GR-7yq"/>
                             <constraint firstItem="kyB-xG-2fp" firstAttribute="top" secondItem="KTo-cf-dnH" secondAttribute="top" constant="8" id="7DW-oH-gSO"/>
-                            <constraint firstItem="NjE-f7-Nal" firstAttribute="leading" secondItem="KTo-cf-dnH" secondAttribute="leading" constant="60" id="IYE-mL-QQy"/>
                             <constraint firstAttribute="bottom" secondItem="kyB-xG-2fp" secondAttribute="bottom" constant="8" id="Ki1-Ms-okl"/>
                             <constraint firstItem="eOy-eR-r8w" firstAttribute="leading" secondItem="CsJ-z2-JKb" secondAttribute="trailing" constant="8" id="PS2-hm-PQM"/>
-                            <constraint firstAttribute="bottom" secondItem="NjE-f7-Nal" secondAttribute="bottom" constant="58" id="Xca-nm-xHf"/>
+                            <constraint firstItem="NjE-f7-Nal" firstAttribute="centerY" secondItem="kyB-xG-2fp" secondAttribute="centerY" id="Zhn-bL-xfx"/>
                             <constraint firstItem="CsJ-z2-JKb" firstAttribute="top" secondItem="KTo-cf-dnH" secondAttribute="top" id="bOr-5Z-iGB"/>
                             <constraint firstItem="CsJ-z2-JKb" firstAttribute="leading" secondItem="kyB-xG-2fp" secondAttribute="trailing" constant="8" id="dUj-of-rB5"/>
-                            <constraint firstItem="CsJ-z2-JKb" firstAttribute="leading" secondItem="NjE-f7-Nal" secondAttribute="trailing" constant="60" id="f8d-AX-c1I"/>
                             <constraint firstItem="kyB-xG-2fp" firstAttribute="leading" secondItem="KTo-cf-dnH" secondAttribute="leading" constant="8" id="gG3-ZD-i2N"/>
+                            <constraint firstItem="NjE-f7-Nal" firstAttribute="centerX" secondItem="kyB-xG-2fp" secondAttribute="centerX" id="iQx-KN-oai"/>
                             <constraint firstAttribute="height" constant="136" id="ing-sA-Lg6"/>
                             <constraint firstAttribute="bottom" secondItem="CsJ-z2-JKb" secondAttribute="bottom" id="ipI-Wx-CUP"/>
                             <constraint firstItem="eOy-eR-r8w" firstAttribute="top" secondItem="KTo-cf-dnH" secondAttribute="top" constant="12" id="nvU-Kl-8PU"/>
-                            <constraint firstItem="NjE-f7-Nal" firstAttribute="top" secondItem="KTo-cf-dnH" secondAttribute="top" constant="58" id="oQA-fJ-aha"/>
                             <constraint firstAttribute="bottom" secondItem="eOy-eR-r8w" secondAttribute="bottom" constant="12" id="oai-Zk-4rb"/>
                             <constraint firstAttribute="trailing" secondItem="eOy-eR-r8w" secondAttribute="trailing" constant="8" id="sje-MS-Qto"/>
                         </constraints>
