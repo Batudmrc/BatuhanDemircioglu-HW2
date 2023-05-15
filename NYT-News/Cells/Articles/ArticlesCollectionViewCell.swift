@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NewsAPI
 
 class ArticlesCollectionViewCell: UICollectionViewCell {
     
@@ -32,7 +33,7 @@ class ArticlesCollectionViewCell: UICollectionViewCell {
         spinner.startAnimating()
         spinner.isHidden = false
         
-        if let imageUrlString = article.multimedia?.first?.url {
+        if let imageUrlString = article.multimedia?[2].url {
             self.imageUrlString = imageUrlString
             if let cachedImage = ImageCache.shared.getImage(for: imageUrlString) {
                 // Use the cached image if available

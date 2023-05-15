@@ -22,6 +22,7 @@
 		3B13C5682A0D1A35005B25FE /* ArticlesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13C5662A0D1A35005B25FE /* ArticlesCollectionViewCell.swift */; };
 		3B13C5692A0D1A35005B25FE /* ArticlesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B13C5672A0D1A35005B25FE /* ArticlesCollectionViewCell.xib */; };
 		3B13C56B2A0D2B34005B25FE /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13C56A2A0D2B34005B25FE /* ArticlesViewController.swift */; };
+		3B908B4E2A127F2C002FD570 /* NewsAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 3B908B4D2A127F2C002FD570 /* NewsAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		3B13C5662A0D1A35005B25FE /* ArticlesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B13C5672A0D1A35005B25FE /* ArticlesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticlesCollectionViewCell.xib; sourceTree = "<group>"; };
 		3B13C56A2A0D2B34005B25FE /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
+		3B908B4B2A12718A002FD570 /* NewsAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NewsAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B908B4E2A127F2C002FD570 /* NewsAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,8 +61,10 @@
 		3B13C5342A0CE23D005B25FE = {
 			isa = PBXGroup;
 			children = (
+				3B908B4B2A12718A002FD570 /* NewsAPI */,
 				3B13C53F2A0CE23D005B25FE /* NYT-News */,
 				3B13C53E2A0CE23D005B25FE /* Products */,
+				3B908B4C2A127F2C002FD570 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +147,13 @@
 			path = Articles;
 			sourceTree = "<group>";
 		};
+		3B908B4C2A127F2C002FD570 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,6 +170,9 @@
 			dependencies = (
 			);
 			name = "NYT-News";
+			packageProductDependencies = (
+				3B908B4D2A127F2C002FD570 /* NewsAPI */,
+			);
 			productName = "NYT-News";
 			productReference = 3B13C53D2A0CE23D005B25FE /* NYT-News.app */;
 			productType = "com.apple.product-type.application";
@@ -450,6 +465,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B908B4D2A127F2C002FD570 /* NewsAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NewsAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B13C5352A0CE23D005B25FE /* Project object */;
 }

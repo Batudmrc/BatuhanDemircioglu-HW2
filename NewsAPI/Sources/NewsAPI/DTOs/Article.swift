@@ -1,18 +1,18 @@
 //
 //  Article.swift
-//  NYT-News
+//  
 //
-//  Created by Batuhan Demircioğlu on 11.05.2023.
+//  Created by Batuhan Demircioğlu on 15.05.2023.
 //
-/*
+
 import Foundation
 
 // MARK: - Welcome
-struct Article: Codable {
-    let status, copyright, section: String
-    let lastUpdated: String
-    let numResults: Int
-    let results: [ArticleResult]
+public struct Article: Codable {
+    public let status, copyright, section: String
+    public let lastUpdated: String
+    public let numResults: Int
+    public let results: [ArticleResult]
 
     enum CodingKeys: String, CodingKey {
         case status, copyright, section
@@ -23,13 +23,13 @@ struct Article: Codable {
 }
 
 // MARK: - Result
-struct ArticleResult: Codable {
-    let section, subsection, title, abstract: String
-    let url: String
-    let byline: String
-    let updatedDate, createdDate, publishedDate: String
-    let multimedia: [Multimedia]?
-    let shortURL: String
+public struct ArticleResult: Codable {
+    public let section, subsection, title, abstract: String
+    public let url: String
+    public let byline: String
+    public let updatedDate, createdDate, publishedDate: String
+    public let multimedia: [Multimedia]?
+    public let shortURL: String
 
     enum CodingKeys: String, CodingKey {
         case section, subsection, title, abstract, url, byline
@@ -42,17 +42,17 @@ struct ArticleResult: Codable {
 }
 
 // MARK: - Multimedia
-struct Multimedia: Codable {
-    let url: String
-    let format: Format
-    let height, width: Int
-    let caption: String
+public struct Multimedia: Codable {
+    public let url: String
+    public let format: Format
+    public let height, width: Int
+    public let caption: String
 }
 
-enum Format: String, Codable {
+public enum Format: String, Codable {
     case largeThumbnail = "Large Thumbnail"
     case superJumbo = "Super Jumbo"
     case threeByTwoSmallAt2X = "threeByTwoSmallAt2X"
 }
-*/
+
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NewsAPI // Network package
 
 class ArticlesViewController: UIViewController {
     
@@ -13,6 +14,7 @@ class ArticlesViewController: UIViewController {
     
     var articles: [ArticleResult] = []
     var categoryName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,12 +24,11 @@ class ArticlesViewController: UIViewController {
     }
     func fetchNews() {
         guard let category = categoryName else { return }
-        
         NYTimesAPIRequest.fetchNews(for: category) { [weak self] result in
             switch result {
             case .success(let article):
                 DispatchQueue.main.async {
-                    self?.articles.append(contentsOf: article.results) // Add the article to the articles array
+                    self?.articles.append(contentsOf: article.results)
                     self?.collectionView.reloadData()
                 }
             case .failure(let error):

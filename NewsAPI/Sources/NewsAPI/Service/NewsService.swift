@@ -1,14 +1,14 @@
 //
-//  NewsRequest.swift
-//  NYT-News
+//  NewsService.swift
+//  
 //
-//  Created by Batuhan Demircioğlu on 11.05.2023.
+//  Created by Batuhan Demircioğlu on 15.05.2023.
 //
-/*
+
 import Foundation
 
 public struct NYTimesAPIRequest {
-     static func fetchNews(for category: String, completion: @escaping (Result<Article, Error>) -> Void) {
+     public static func fetchNews(for category: String, completion: @escaping (Result<Article, Error>) -> Void) {
         guard let url = buildURL(for: category) else {
             let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
             completion(.failure(error))
@@ -22,7 +22,7 @@ public struct NYTimesAPIRequest {
                     completion(.success(articles))
                 } catch {
                     completion(.failure(error))
-                }   
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -56,5 +56,3 @@ public struct NYTimesAPIRequest {
         return try decoder.decode(Article.self, from: data)
     }
 }
- */
-
