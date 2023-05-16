@@ -88,15 +88,15 @@
             </objects>
             <point key="canvasLocation" x="1860" y="-27"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Page View Controller-->
         <scene sceneID="C3J-w2-J9e">
             <objects>
-                <viewController id="4At-nz-Keb" sceneMemberID="viewController">
+                <viewController id="4At-nz-Keb" customClass="DetailPageViewController" customModule="NYT_News" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1yy-zk-etr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testArticle" translatesAutoresizingMaskIntoConstraints="NO" id="dT8-tC-Py0">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dT8-tC-Py0">
                                 <rect key="frame" x="0.0" y="103" width="393" height="264"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ToL-aO-WnA">
@@ -129,6 +129,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="See More"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="4At-nz-Keb" eventType="touchUpInside" id="agf-pf-bYK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6g-pN-Ols">
                                 <rect key="frame" x="16" y="497.66666666666669" width="361" height="119.66666666666669"/>
@@ -137,11 +140,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="e5v-L3-bxm">
+                                <rect key="frame" x="178" y="216.66666666666666" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h9C-Mg-Tbb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="h9C-Mg-Tbb" firstAttribute="trailing" secondItem="aYg-bM-BdO" secondAttribute="trailing" constant="20" id="3dY-4H-mGo"/>
+                            <constraint firstItem="e5v-L3-bxm" firstAttribute="centerX" secondItem="dT8-tC-Py0" secondAttribute="centerX" id="7LN-QH-JF3"/>
                             <constraint firstItem="19i-1w-zLR" firstAttribute="leading" secondItem="h9C-Mg-Tbb" secondAttribute="leading" id="L9t-dj-9wW"/>
                             <constraint firstItem="dT8-tC-Py0" firstAttribute="leading" secondItem="h9C-Mg-Tbb" secondAttribute="leading" id="Len-Nc-5E9"/>
                             <constraint firstItem="aYg-bM-BdO" firstAttribute="height" secondItem="1yy-zk-etr" secondAttribute="height" multiplier="0.05" id="M6K-vh-OgC"/>
@@ -149,6 +156,7 @@
                             <constraint firstItem="h9C-Mg-Tbb" firstAttribute="trailing" secondItem="19i-1w-zLR" secondAttribute="trailing" id="W6G-CV-40W"/>
                             <constraint firstAttribute="trailing" secondItem="ToL-aO-WnA" secondAttribute="trailing" constant="16" id="WUb-6e-yxg"/>
                             <constraint firstItem="ToL-aO-WnA" firstAttribute="leading" secondItem="h9C-Mg-Tbb" secondAttribute="leading" constant="16" id="amR-TN-0Ly"/>
+                            <constraint firstItem="e5v-L3-bxm" firstAttribute="centerY" secondItem="dT8-tC-Py0" secondAttribute="centerY" id="cNf-Cp-ren"/>
                             <constraint firstItem="ToL-aO-WnA" firstAttribute="top" secondItem="dT8-tC-Py0" secondAttribute="bottom" constant="16" id="edZ-Zf-1V2"/>
                             <constraint firstItem="19i-1w-zLR" firstAttribute="top" secondItem="ToL-aO-WnA" secondAttribute="bottom" constant="16" id="fo4-cH-lEx"/>
                             <constraint firstItem="O6g-pN-Ols" firstAttribute="leading" secondItem="h9C-Mg-Tbb" secondAttribute="leading" constant="16" id="o3s-GX-OHC"/>
@@ -168,6 +176,13 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Yg5-WU-EqO"/>
+                    <connections>
+                        <outlet property="abstractLabel" destination="O6g-pN-Ols" id="GBP-dw-Rrc"/>
+                        <outlet property="bylineLabel" destination="caY-wZ-KyW" id="8R5-Sd-H57"/>
+                        <outlet property="imageView" destination="dT8-tC-Py0" id="EGt-qi-6LA"/>
+                        <outlet property="spinner" destination="e5v-L3-bxm" id="2CE-wC-fKH"/>
+                        <outlet property="titleLabel" destination="zuj-lq-Ek6" id="NtM-Zv-q63"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ri-Xn-BU4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,7 +208,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="testArticle" width="2048" height="1366"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

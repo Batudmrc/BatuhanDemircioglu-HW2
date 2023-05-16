@@ -12,6 +12,7 @@ class ArticlesViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let spinner = UIActivityIndicatorView(style: .large)
     var articles: [ArticleResult] = []
     var categoryName: String?
     
@@ -19,20 +20,36 @@ class ArticlesViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = categoryName?.capitalized
+        
+        setupSpinner()
         fetchNews()
         setupCollectionView()
     }
+    
+    func setupSpinner() {
+            spinner.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(spinner)
+            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        }
     func fetchNews() {
         guard let category = categoryName else { return }
+        spinner.isHidden = false
+                spinner.startAnimating()
         NYTimesAPIRequest.fetchNews(for: category) { [weak self] result in
             switch result {
             case .success(let article):
                 DispatchQueue.main.async {
                     self?.articles.append(contentsOf: article.results)
                     self?.collectionView.reloadData()
+                    self?.spinner.stopAnimating()
                 }
             case .failure(let error):
                 print("Error fetching news: \(error)")
+                DispatchQueue.main.async {
+                    self?.spinner.stopAnimating()
+                }
+
             }
         }
     }
@@ -61,5 +78,12 @@ extension ArticlesViewController: UICollectionViewDelegate,UICollectionViewDataS
         let selectedArticle = articles[indexPath.row]
         performSegue(withIdentifier: "toDetailVC", sender: selectedArticle)
         print(articles[indexPath.row])
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC" {
+            if let detailVC = segue.destination as? DetailPageViewController {
+                detailVC.article = sender as? ArticleResult
+            }
+        }
     }
 }
