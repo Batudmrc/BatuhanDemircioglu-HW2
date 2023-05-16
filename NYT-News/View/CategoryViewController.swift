@@ -24,55 +24,22 @@ class CategoryViewController: UIViewController {
                                   Category(categoryName: "U.S", categoryImage: "us"),
                                   Category(categoryName: "World", categoryImage: "world")]
     
-    let pathMonitor = NWPathMonitor()
+    override func viewWillAppear(_ animated: Bool) {
+        // ConnectionCheck
+        NetworkUtils.checkConnection(in: self) {
+            NetworkUtils.retryButtonTapped(in: self)
+        }
+    }
     
     override func viewDidLoad() {
         self.title = "Choose a Category"
         super.viewDidLoad()
-        if !checkNetworkConnectivity() {
-                let alert = UIAlertController(title: "No Internet Connection", message: "Please check your internet connection and try again.", preferredStyle: .alert)
-                let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
-                    self?.retryButtonTapped()
-                }
-                alert.addAction(retryAction)
-                present(alert, animated: true, completion: nil)
-            }
+        // ConnectionCheck
+        NetworkUtils.checkConnection(in: self) {
+            NetworkUtils.retryButtonTapped(in: self)
+        }
         setupCollectionView()
     }
-    
-    func checkNetworkConnectivity() -> Bool {
-        let pathMonitor = NWPathMonitor()
-        let semaphore = DispatchSemaphore(value: 0)
-        var isConnected = false
-        
-        pathMonitor.pathUpdateHandler = { path in
-            isConnected = path.status == .satisfied
-            semaphore.signal()
-        }
-        
-        let queue = DispatchQueue(label: "NetworkMonitor")
-        pathMonitor.start(queue: queue)
-        
-        _ = semaphore.wait(timeout: .now() + 2)
-        
-        return isConnected
-    }
-    func retryButtonTapped() {
-        if checkNetworkConnectivity() {
-            dismiss(animated: true) {
-                // Proceed with loading the view or performing any necessary actions
-            }
-        } else {
-            let alert = UIAlertController(title: "No Internet Connection", message: "Please check your internet connection and try again.", preferredStyle: .alert)
-            let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
-                self?.retryButtonTapped()
-            }
-            alert.addAction(retryAction)
-            present(alert, animated: true, completion: nil)
-        }
-    }
-
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toArticlesVC" {
@@ -110,6 +77,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCategory = categories[indexPath.row].categoryImage
         performSegue(withIdentifier: "toArticlesVC", sender: selectedCategory)
+
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width

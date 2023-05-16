@@ -16,11 +16,17 @@ class ArticlesViewController: UIViewController {
     var articles: [ArticleResult] = []
     var categoryName: String?
     
+    override func viewWillAppear(_ animated: Bool) {
+        // Connection Check
+        NetworkUtils.checkConnection(in: self) {
+            NetworkUtils.retryButtonTapped(in: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = categoryName?.capitalized
-        
+
         setupSpinner()
         fetchNews()
         setupCollectionView()
@@ -49,7 +55,6 @@ class ArticlesViewController: UIViewController {
                 DispatchQueue.main.async {
                     self?.spinner.stopAnimating()
                 }
-
             }
         }
     }
@@ -57,10 +62,10 @@ class ArticlesViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsVerticalScrollIndicator = false
-        
         collectionView.register(UINib(nibName: ArticlesCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: ArticlesCollectionViewCell.identifier)
     }
 }
+
 extension ArticlesViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articles.count
@@ -87,3 +92,4 @@ extension ArticlesViewController: UICollectionViewDelegate,UICollectionViewDataS
         }
     }
 }
+
