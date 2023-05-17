@@ -6,14 +6,18 @@
 //
 
 import UIKit
-import Network
-
 
 class CategoryViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var categories: [Category] = setCategoryList()
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NetworkUtils.checkConnection(in: self) {
+            NetworkUtils.retryButtonTapped(in: self)
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         // ConnectionCheck
@@ -50,6 +54,10 @@ class CategoryViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 1
         collectionView.collectionViewLayout = layout
+    }
+    
+    func checkConnection() {
+        
     }
 }
 

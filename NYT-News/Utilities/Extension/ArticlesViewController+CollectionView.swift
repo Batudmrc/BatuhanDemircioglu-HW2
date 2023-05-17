@@ -22,8 +22,20 @@ extension ArticlesViewController: UICollectionViewDelegate, UICollectionViewData
         return cell
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 5.2)
+        let currentOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
+                
+                if currentOrientation == .landscapeLeft || currentOrientation == .landscapeRight {
+                    let itemWidth = collectionView.bounds.width
+                    let itemHeight: CGFloat = 150
+                    return CGSize(width: itemWidth, height: itemHeight)
+                }
+                
+                // Return your default item size for other orientations
+                return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 5.2)
+        //return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 5.2)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -39,6 +51,8 @@ extension ArticlesViewController: UICollectionViewDelegate, UICollectionViewData
             }
         }
     }
+    
+    
     // Creating smooth animation for scrolling
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         // fade-out animation

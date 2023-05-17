@@ -32,7 +32,6 @@ class DetailPageViewController: UIViewController {
         
         setupDetailPage()
         setupSpinner()
-        
     }
     
     func setupDetailPage() {

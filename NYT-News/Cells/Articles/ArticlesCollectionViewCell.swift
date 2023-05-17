@@ -21,6 +21,7 @@ class ArticlesCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         self.imageView.layer.cornerRadius = 4
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
