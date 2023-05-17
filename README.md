@@ -14,6 +14,13 @@ This is a news app that fetches news from the NYTimes API and shows them by thei
 - No third party Packages included
 - Well-organized folder structure
 
+## Screen Record
+
+
+https://github.com/Batudmrc/BatuhanDemircioglu-HW2/assets/87566024/f116858b-82b4-46c1-b9e0-e6d56bc44241
+
+
+
 ## Requirements
 
 - iOS 13.0+
