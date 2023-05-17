@@ -8,7 +8,6 @@
 import Foundation
 
 func setCategoryList() -> [Category] {
-        
     [Category(categoryName: "Automobiles", categoryImage: "automobiles"),
                                   Category(categoryName: "Books", categoryImage: "books"),
                                   Category(categoryName: "Business", categoryImage: "business"),

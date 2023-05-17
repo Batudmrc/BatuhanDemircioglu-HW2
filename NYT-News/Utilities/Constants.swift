@@ -9,13 +9,10 @@ import Foundation
 
 struct Constants {
     enum SegueIdentifiers: String {
-            
             case toDetailVC = "toDetailVC"
             case toArticlesVC = "toArticlesVC"
             case selectionToTicketsSegue = "selectionToTicketsSegue"
             case ticketsToPaymentSegue = "ticketsToPaymentSegue"
             case myTicketsToTicketSelectionSegue = "myTicketsToTicketSelectionSegue"
         }
-    
-    
 }

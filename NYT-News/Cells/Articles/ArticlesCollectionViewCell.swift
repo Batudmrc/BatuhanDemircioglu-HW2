@@ -67,9 +67,12 @@ class ArticlesCollectionViewCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 // Display the image if the URL matches the current cell
                 if urlString == self?.imageUrlString {
-                    self?.imageView.image = image
-                    self?.spinner.stopAnimating()
-                    self?.spinner.isHidden = true
+                    UIView.transition(with: (self?.imageView)!, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                        self?.imageView.image = image
+                    }) { _ in
+                        self?.spinner.stopAnimating()
+                        self?.spinner.isHidden = true
+                    }
                 }
             }
         }
@@ -81,6 +84,7 @@ struct ArticleView {
     let abstract: String
     let image: String
 }
+// Caching images to prevent the image from appearing in the wrong place
 class ImageCache {
     static let shared = ImageCache()
     private let cache = NSCache<NSString, UIImage>()

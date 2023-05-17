@@ -11,6 +11,7 @@ import SafariServices
 
 class DetailPageViewController: UIViewController {
     
+    @IBOutlet weak var publishDateLabel: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var abstractLabel: UILabel!
     @IBOutlet weak var bylineLabel: UILabel!
@@ -19,18 +20,26 @@ class DetailPageViewController: UIViewController {
     
     var article: ArticleResult?
     
+    override func viewWillAppear(_ animated: Bool) {
+        // Connection check
+        NetworkUtils.checkConnection(in: self) {
+            NetworkUtils.retryButtonTapped(in: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupDetailPage()
+        setupSpinner()
+        
+    }
+    
+    func setupDetailPage() {
         abstractLabel.text = article?.abstract
         bylineLabel.text = article?.byline
         titleLabel.text = article?.title
-        
-        spinner.startAnimating()
-        spinner.style = .large
-        spinner.color = .systemBlue
-        spinner.hidesWhenStopped = true
-        
+        publishDateLabel.text = dateFormatter(article!.publishedDate)
         if let multimedia = article?.multimedia,
            let urlString = multimedia.first?.url,
            let url = URL(string: urlString) {
@@ -38,23 +47,64 @@ class DetailPageViewController: UIViewController {
         }
     }
     
+    func setupSpinner() {
+        spinner.startAnimating()
+        spinner.style = .large
+        spinner.color = .systemBlue
+        spinner.hidesWhenStopped = true
+    }
+    // Date formatter to return days passed after articles publish
+    func dateFormatter(_ dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
+        if let date = dateFormatter.date(from: dateString) {
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.day], from: date, to: Date())
+            
+            if let days = components.day {
+                if days == 0 {
+                    return "Today"
+                } else if days == 1 {
+                    return "Yesterday"
+                } else if days > 1 {
+                    return "\(days) days ago"
+                } else {
+                    return "In the future"
+                }
+            }
+        }
+        
+        return "Invalid date"
+    }
+    
+    // Download image and store as UIImage
     private func loadImage(from url: URL) {
         URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             guard let data = data,
                   let image = UIImage(data: data) else {
                 DispatchQueue.main.async {
-                    self?.spinner.stopAnimating() // Stop the spinner if an error occurs
+                    self?.spinner.stopAnimating()
                 }
                 return
             }
             DispatchQueue.main.async {
-                self?.imageView.image = image
-                self?.spinner.stopAnimating() // Stop the spinner once the image is loaded
-                self?.spinner.isHidden = true
+                // dissolve animation after image is loaded
+                if let strongSelf = self {
+                    UIView.transition(with: strongSelf.imageView,
+                                      duration: 0.1,
+                                      options: .transitionCrossDissolve,
+                                      animations: {
+                        strongSelf.imageView.image = image
+                    },
+                                      completion: { _ in
+                        strongSelf.spinner.stopAnimating()
+                        strongSelf.spinner.isHidden = true
+                    })
+                }
             }
         }.resume()
     }
-    
     
     @IBAction func buttonTapped(_ sender: Any) {
         if let urlString = article?.url,
@@ -63,5 +113,4 @@ class DetailPageViewController: UIViewController {
             present(safariViewController, animated: true, completion: nil)
         }
     }
-    
 }

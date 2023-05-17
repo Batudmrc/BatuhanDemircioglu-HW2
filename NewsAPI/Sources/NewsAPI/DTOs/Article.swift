@@ -9,13 +9,13 @@ import Foundation
 
 // MARK: - Welcome
 public struct Article: Codable {
-    public let status, copyright, section: String
+    public let copyright, section: String
     public let lastUpdated: String
     public let numResults: Int
     public let results: [ArticleResult]
 
     enum CodingKeys: String, CodingKey {
-        case status, copyright, section
+        case copyright, section
         case lastUpdated = "last_updated"
         case numResults = "num_results"
         case results

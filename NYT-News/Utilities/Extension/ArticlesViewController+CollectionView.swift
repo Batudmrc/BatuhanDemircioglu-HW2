@@ -10,12 +10,14 @@ import NewsAPI
 
 extension ArticlesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return articles.count
+        let filteredArticles = articles.filter { !$0.title.isEmpty } // Filter the empty data
+        return filteredArticles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticlesCollectionViewCell.identifier, for: indexPath) as! ArticlesCollectionViewCell
-        let article = articles[indexPath.row]
+        let filteredArticles = articles.filter { !$0.title.isEmpty } // Filter the empty data
+        let article = filteredArticles[indexPath.row]
         cell.setup(article: article)
         return cell
     }
@@ -25,11 +27,11 @@ extension ArticlesViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedArticle = articles[indexPath.row]
+        let filteredArticles = articles.filter { !$0.title.isEmpty } // Filter the empty data
+        let selectedArticle = filteredArticles[indexPath.row]
         performSegue(withIdentifier: Constants.SegueIdentifiers.toDetailVC.rawValue, sender: selectedArticle)
-        print(articles[indexPath.row])
     }
-    
+    // Passing selected article to the detail VC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SegueIdentifiers.toDetailVC.rawValue {
             if let detailVC = segue.destination as? DetailPageViewController {
@@ -37,5 +39,21 @@ extension ArticlesViewController: UICollectionViewDelegate, UICollectionViewData
             }
         }
     }
+    // Creating smooth animation for scrolling
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        // fade-out animation
+        UIView.animate(withDuration: 0.1) {
+            cell.alpha = 0.0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        // fade-in animation
+        cell.alpha = 0.0
+        UIView.animate(withDuration: 0.15) {
+            cell.alpha = 1.0
+        }
+    }
+    
 }
 
