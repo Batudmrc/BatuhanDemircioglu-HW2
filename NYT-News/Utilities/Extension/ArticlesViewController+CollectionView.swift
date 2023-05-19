@@ -10,32 +10,29 @@ import NewsAPI
 
 extension ArticlesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let filteredArticles = articles.filter { !$0.title.isEmpty } // Filter the empty data
+        let filteredArticles = articles.filter { !$0.title.isEmpty } // Filter the empty data coming from api
         return filteredArticles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticlesCollectionViewCell.identifier, for: indexPath) as! ArticlesCollectionViewCell
-        let filteredArticles = articles.filter { !$0.title.isEmpty } // Filter the empty data
+        let filteredArticles = articles.filter { !$0.title.isEmpty } // Filter the empty data coming from api
         let article = filteredArticles[indexPath.row]
         cell.setup(article: article)
         return cell
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let currentOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
-                
-                if currentOrientation == .landscapeLeft || currentOrientation == .landscapeRight {
-                    let itemWidth = collectionView.bounds.width
-                    let itemHeight: CGFloat = 150
-                    return CGSize(width: itemWidth, height: itemHeight)
-                }
-                
-                // Return your default item size for other orientations
-                return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 5.2)
-        //return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 5.2)
+        // Custom height for landscape mode
+        if currentOrientation == .landscapeLeft || currentOrientation == .landscapeRight {
+            let itemWidth = collectionView.bounds.width
+            let itemHeight: CGFloat = 150
+            return CGSize(width: itemWidth, height: itemHeight)
+        }
+        
+        // Return default item size for other orientations
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 5.2)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -51,7 +48,6 @@ extension ArticlesViewController: UICollectionViewDelegate, UICollectionViewData
             }
         }
     }
-    
     
     // Creating smooth animation for scrolling
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

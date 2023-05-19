@@ -14,25 +14,19 @@ class CategoryViewController: UIViewController {
     var categories: [Category] = setCategoryList()
     
     override func viewWillDisappear(_ animated: Bool) {
-        NetworkUtils.checkConnection(in: self) {
-            NetworkUtils.retryButtonTapped(in: self)
-        }
+        checkConnection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // ConnectionCheck
-        NetworkUtils.checkConnection(in: self) {
-            NetworkUtils.retryButtonTapped(in: self)
-        }
+        checkConnection()
     }
     
     override func viewDidLoad() {
         self.title = "Choose a Category"
         super.viewDidLoad()
         // ConnectionCheck
-        NetworkUtils.checkConnection(in: self) {
-            NetworkUtils.retryButtonTapped(in: self)
-        }
+        checkConnection()
         setupCollectionView()
     }
     // Passing category to the next VC
@@ -57,7 +51,9 @@ class CategoryViewController: UIViewController {
     }
     
     func checkConnection() {
-        
+        NetworkUtils.checkConnection(in: self) {
+            NetworkUtils.retryButtonTapped(in: self)
+        }
     }
 }
 

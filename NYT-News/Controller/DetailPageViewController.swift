@@ -73,10 +73,8 @@ class DetailPageViewController: UIViewController {
                 }
             }
         }
-        
         return "Invalid date"
     }
-    
     // Download image and store as UIImage
     private func loadImage(from url: URL) {
         URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in

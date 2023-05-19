@@ -16,6 +16,12 @@ class ArticlesViewController: UIViewController {
     var articles: [ArticleResult] = []
     var categoryName: String?
     
+    override func viewWillDisappear(_ animated: Bool) {
+        NetworkUtils.checkConnection(in: self) {
+            NetworkUtils.retryButtonTapped(in: self)
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         // Connection Check
         NetworkUtils.checkConnection(in: self) {

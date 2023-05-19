@@ -87,11 +87,11 @@
 		3B13C53F2A0CE23D005B25FE /* NYT-News */ = {
 			isa = PBXGroup;
 			children = (
-				3B510D962A1437A40017F1A0 /* Storyboards */,
 				3B510D8A2A141E500017F1A0 /* Utilities */,
 				3B13C5562A0CEACF005B25FE /* Cells */,
-				3B13C5552A0CE9A7005B25FE /* View */,
 				3B13C5542A0CE99B005B25FE /* Model */,
+				3B510D962A1437A40017F1A0 /* View */,
+				3B13C5552A0CE9A7005B25FE /* Controller */,
 				3B13C5402A0CE23D005B25FE /* AppDelegate.swift */,
 				3B13C5422A0CE23D005B25FE /* SceneDelegate.swift */,
 				3B13C5492A0CE23E005B25FE /* Assets.xcassets */,
@@ -108,14 +108,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		3B13C5552A0CE9A7005B25FE /* View */ = {
+		3B13C5552A0CE9A7005B25FE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				3B13C5442A0CE23D005B25FE /* CategoryViewController.swift */,
 				3B13C56A2A0D2B34005B25FE /* ArticlesViewController.swift */,
 				3B7063442A1397110006AD87 /* DetailPageViewController.swift */,
 			);
-			path = View;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		3B13C5562A0CEACF005B25FE /* Cells */ = {
@@ -166,13 +166,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		3B510D962A1437A40017F1A0 /* Storyboards */ = {
+		3B510D962A1437A40017F1A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				3B13C5462A0CE23D005B25FE /* Main.storyboard */,
 				3B13C54B2A0CE23E005B25FE /* LaunchScreen.storyboard */,
 			);
-			path = Storyboards;
+			path = View;
 			sourceTree = "<group>";
 		};
 		3B908B4C2A127F2C002FD570 /* Frameworks */ = {
